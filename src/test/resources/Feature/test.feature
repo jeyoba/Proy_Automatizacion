@@ -8,6 +8,7 @@ Feature: Buy product in the Shopping Cart
     When The user generates a card number
     And The user pay a product
     And El usuario selecciona los campos obligatorios
+    And El usuario genera pago
     Then Verificar pago exitoso
     And Verificar que regrese a pantalla inicio
 
