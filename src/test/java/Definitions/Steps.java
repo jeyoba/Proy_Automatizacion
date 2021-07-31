@@ -3,6 +3,7 @@ package Definitions;
 import PageObjects.ExitosoPage;
 import PageObjects.HomePage;
 import PageObjects.PayPage;
+import PageObjects.TarjetaPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,12 +12,14 @@ import io.cucumber.java.en.When;
 public class Steps {
 
    HomePage hpage;
+   TarjetaPage tpage;
    PayPage ppage;
    ExitosoPage epage;
 
     //Constructor
     public Steps() {
        hpage = new HomePage(Hooks.driver);
+       tpage = new TarjetaPage(Hooks.driver);
        ppage = new PayPage(Hooks.driver);
        epage = new ExitosoPage(Hooks.driver);
 
@@ -30,10 +33,19 @@ public class Steps {
     @When("The user generates a card number")
     public void theUserGeneratesACardNumber() {
 
-        hpage.clicGenerar();
+        hpage.clicGenerarTarjeta();
     }
 
-    @And("The user pay a product")
+    @And("Usuario obtiene valores de tarjeta")
+    public void usuarioObtieneValoresDeTarjeta() {
+        tpage.windowsPosition();
+        tpage.obtenerNumeroTarjeta();
+        tpage.obtenerCvv();
+        tpage.obtenerFechExp();
+        tpage.windowsInicial();
+    }
+
+  /*  @And("The user pay a product")
     public void theUserPayAProduct() {
         hpage.seleccionarCantidad();
         hpage.clicGenerarPago();
@@ -61,6 +73,6 @@ public class Steps {
     public void verificarQueRegreseAPantallaInicio() {
         epage.MostrarHomePage();
     }
-
+*/
 
 }

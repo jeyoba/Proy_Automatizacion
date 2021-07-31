@@ -6,3 +6,10 @@ Feature: Buy product in the Shopping Cart
   Scenario: 1. Buy product
     Given Web page is available
     When The user generates a card number
+    And Usuario obtiene valores de tarjeta
+    #And The user pay a product
+    #And El usuario selecciona los campos obligatorios
+    #And El usuario genera pago
+    #Then Verificar pago exitoso
+    #And Verificar que regrese a pantalla inicio
+
