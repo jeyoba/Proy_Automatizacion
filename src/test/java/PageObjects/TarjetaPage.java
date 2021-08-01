@@ -15,9 +15,9 @@ public class TarjetaPage {
     private WebDriverWait wait;
     protected static String vNumTarj;
     protected static String vCvv;
-    protected static String vFechExp;
     protected static String mes;
     protected static String anio;
+
 
     //Locators
     @FindBy(xpath ="//*[@id=\"three\"]/div/h4[1]") private WebElement lblNumTarj;

@@ -45,34 +45,30 @@ public class Steps {
         tpage.windowsInicial();
     }
 
-  /*  @And("The user pay a product")
-    public void theUserPayAProduct() {
-        hpage.seleccionarCantidad();
-        hpage.clicGenerarPago();
+    @And("El usuario compra {string} productos")
+    public void elUsuarioCompraProductos(String cant) {
+        hpage.seleccionarCantidad(cant);
+        hpage.comprarProducto();
     }
 
-    @And("El usuario selecciona los campos obligatorios")
-    public void elUsuarioSeleccioneLosCamposObligatorios() {
+    @And("El usuario ingresa los campos obligatorios")
+    public void elUsuarioIngresaLosCamposObligatorios() {
         ppage.ingresarNumeroTarjeta();
         ppage.ingresarMesExp();
         ppage.ingresarAnioExp();
         ppage.ingresarCvv();
 
     }
+
     @And("El usuario genera pago")
     public void elUsuarioGeneraPago() {
-        ppage.procederPago();
+        ppage.generarPago();
     }
+
 
     @Then("Verificar pago exitoso")
     public void verificarPagoExitoso() {
-        epage.VerificarPagoExitoso();
-    }
+        epage.verificarMensaje();
 
-    @And("Verificar que regrese a pantalla inicio")
-    public void verificarQueRegreseAPantallaInicio() {
-        epage.MostrarHomePage();
     }
-*/
-
 }
