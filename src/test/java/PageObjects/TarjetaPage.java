@@ -16,6 +16,8 @@ public class TarjetaPage {
     protected static String vNumTarj;
     protected static String vCvv;
     protected static String vFechExp;
+    protected static String mes;
+    protected static String anio;
 
     //Locators
     @FindBy(xpath ="//*[@id=\"three\"]/div/h4[1]") private WebElement lblNumTarj;
@@ -32,24 +34,32 @@ public class TarjetaPage {
 
     public void obtenerNumeroTarjeta(){
         wait.until(ExpectedConditions.visibilityOf(lblNumTarj));
-        vNumTarj=lblNumTarj.getText().replace("Card Number:-","");
+        vNumTarj=lblNumTarj.getText().replace("Card Number:- ","");
         //vNumTarj= lblNumTarj.getText();
         System.out.println(vNumTarj);
 
     }
     public void obtenerCvv(){
         wait.until(ExpectedConditions.visibilityOf(lblCvv));
-        vCvv=lblCvv.getText().replace("CVV:-","");
+        vCvv=lblCvv.getText().replace("CVV:- ","");
         //vCvv= lblCvv.getText();
         System.out.println(vCvv);
 
     }
     public void obtenerFechExp(){
-        wait.until(ExpectedConditions.visibilityOf(lblFechExp));
-        vFechExp=lblFechExp.getText().replace("Exp:-","");
+        /*wait.until(ExpectedConditions.visibilityOf(lblFechExp));
+        vFechExp=lblFechExp.getText().replace("Exp:-","");*/
         //vFechExp= lblFechExp.getText();
-        System.out.println(vFechExp);
-    }
+        /*wait.until(ExpectedConditions.visibilityOf(lblFechExp));
+        String dato []= lblFechExp.getText().replace("Exp:- ","").split("/");
+
+        System.out.println(lblFechExp.getText());*/
+        String expDate []=lblFechExp.getText().replace("Exp:- ","").split("/");
+        mes = expDate[0];
+        anio = expDate[1];
+        System.out.println(mes);
+        System.out.println(anio);
+       }
 
     public void windowsPosition(){
         Set<String> identificadores= driver.getWindowHandles();
